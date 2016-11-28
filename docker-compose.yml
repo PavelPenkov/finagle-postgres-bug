@@ -1,0 +1,15 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.4.10
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: pgsql
+      POSTGRES_PASSWORD: pgsql
+  app:
+    image: finagle-postgres-bug
+    depends_on:
+      - db
+volumes:
+  postgres:
